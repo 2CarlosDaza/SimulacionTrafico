@@ -98,5 +98,8 @@
       <Name>Entity</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="imagenes\coche42.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

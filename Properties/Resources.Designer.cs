@@ -63,6 +63,16 @@ namespace simulación.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap coche42 {
+            get {
+                object obj = ResourceManager.GetObject("coche42", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dibujosim {
             get {
                 object obj = ResourceManager.GetObject("dibujosim", resourceCulture);

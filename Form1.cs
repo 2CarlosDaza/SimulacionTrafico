@@ -15,8 +15,11 @@ namespace simulación
     {
         int secuencia, hora, minuto, segundo;
         string meridiano;//AM o PM
-        readonly List<PictureBox> ListaCarros = new List<PictureBox>();
+         List<PictureBox> ListaCarros = new List<PictureBox>();
+        readonly Random random = new Random();
         coordenadasPlano coordenadasPlano;
+        VehiculoRepository vehiculoRepository;
+        
         public Form1()
         {
             InitializeComponent();
@@ -24,14 +27,13 @@ namespace simulación
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
             label1.Text = (tiempoSemaforo.Interval / 1000).ToString();
-            txtVerde1.BringToFront();
-            txtAmarillo1.BringToFront();
-            txtRojo1.BringToFront();
+            vehiculoRepository = new VehiculoRepository();
             estadoInicialSemaforos();
             setTiempoInicial();
             setCoordenadas();
-            crearAuto();
+          //  crearAuto(this,70,250);
         }
         private void setCoordenadas()
         {
@@ -42,10 +44,18 @@ namespace simulación
             coordenadasPlano.coordenadaY[1] = 23;
             coordenadasPlano.coordenadaX[2] = 15;//lado derecho
             coordenadasPlano.coordenadaY[2] = -60;
-            coordenadasPlano.coordenadaX[3] =12;
+            coordenadasPlano.coordenadaX[3] =12;//lado arriba
             coordenadasPlano.coordenadaY[3]=23;
         }
 
+        private void setTiempoInicial()
+        {
+            hora = 6;
+            minuto = 0;
+            segundo = 0;
+            meridiano = "AM";
+            tiempoGeneral.Interval = 1000;
+        }
 
         private void estadoInicialSemaforos()
         {
@@ -62,6 +72,9 @@ namespace simulación
             btnVerde4.BackColor = Color.Black;
             btnAmarillo4.BackColor = Color.Black;
             btnRojo4.BackColor = Color.Red; ;
+            txtVerde1.BringToFront();
+            txtAmarillo1.BringToFront();
+            txtRojo1.BringToFront();
         }
 
         private void aumentar(Timer timer){
@@ -95,33 +108,103 @@ namespace simulación
             }
         }
 
-        private void crearAuto()
+        private void crearAuto(Form formi,int x,int y)
         {
-            //x=849,y=461
-            //x=15 y=-60
-            //Form panelCalle, int coordenadaXUno, int coordenadaYUno, int coordenadaXDos, int coordenadaYDos, int coordenadaXTres, int coordenadaYTres, int coordenadaXCuatro, int coordenadaYCuatro
+            String ruta;
+            ruta = @"C:\Users\Carlos Daza\source\repos\simulación\imagenes\coche42.png";
+            PictureBox pictureBox = new PictureBox();
+            pictureBox.Location = new Point(x, y);
+            pictureBox.Image = Image.FromFile(ruta);
+            pictureBox.BackColor = Color.Transparent;
+            pictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox.Visible=true;
+            pictureBox.Tag = "carrito" + ListaCarros.Count();
+            ListaCarros.Add(pictureBox);
+            pictureBox.BringToFront();
+            formi.Controls.Add(pictureBox);
             
         }
         private void moverAuto()
         {
             //ListaCarros[i].Location = new Point(ListaCarros[i].Location.X, ListaCarros[i].Location.Y + velocidad);
-            
+            /* if (avanzar)
+             {
+                 ListaCarros[i].Location = new Point(ListaCarros[i].Location.X - velocidad, ListaCarros[i].Location.Y);
+                 if (ListaCarros[i].Location.X < -70)
+                 {
+                     this.Controls.Remove(ListaCarros[i]);
+                     ListaCarros.Remove(ListaCarros[i]);
+                 }
+             }
+             */
+            for (int i = 0; i < ListaCarros.Count; i++)
+            {
+                if (ListaCarros[i].Location.X <= 600)
+                {
+                    ListaCarros[i].Location = new Point(ListaCarros[i].Location.X + 1, ListaCarros[i].Location.Y);
+                }
+                
+                ListaCarros[i].BringToFront();
+            }
         }
 
 
+       
+        private void cambiarColorSemaforo(TextBox txtVerde, TextBox txtAmarillo,TextBox txtRojo, Color color)
+        {
+            if (color == Color.Red)
+            {
+                txtVerde.BackColor = Color.Black;
+                txtAmarillo.BackColor = Color.Black;
+                txtRojo.BackColor = Color.Red;
+            } else if (color == Color.Yellow)
+            {
+                txtVerde.BackColor = Color.Black;
+                txtAmarillo.BackColor = Color.Yellow;
+                txtRojo.BackColor = Color.Black;
+            }
+            else if (color == Color.Green)
+            {
+                txtVerde.BackColor = Color.Green;
+                txtAmarillo.BackColor = Color.Black;
+                txtRojo.BackColor = Color.Black;
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
+
+        }
+        private void TimerAutos_Tick(object sender, EventArgs e)
+        {
+            moverAuto();
+        }
+
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+
+            //tiempoGeneral
+            label1.Text = ((3*tiempoSemaforo.Interval) / 1000).ToString();
+            
+            cambiarHora();
+            label2.Text = hora + ":" + minuto + ":" + segundo+" "+meridiano;
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
+            crearAuto(this, -60, 211);
             secuencia++;
-            if (secuencia==1)
+            if (secuencia == 1)
             {
-                cambiarColorSemaforo(this.txtVerde1,this.txtAmarillo1,this.txtRojo1,Color.Yellow);
+                cambiarColorSemaforo(this.txtVerde1, this.txtAmarillo1, this.txtRojo1, Color.Yellow);
             }
-            else if (secuencia==2)
+            else if (secuencia == 2)
             {
                 cambiarColorSemaforo(this.txtVerde1, this.txtAmarillo1, this.txtRojo1, Color.Red);
                 cambiarColorSemaforo(this.btnVerde2, this.btnAmarillo2, this.btnRojo2, Color.Yellow);
             }
-            else if (secuencia==3)//semaforo2
+            else if (secuencia == 3)//semaforo2
             {
                 cambiarColorSemaforo(this.btnVerde2, this.btnAmarillo2, this.btnRojo2, Color.Green);
             }
@@ -129,7 +212,7 @@ namespace simulación
             {
                 cambiarColorSemaforo(this.btnVerde2, this.btnAmarillo2, this.btnRojo2, Color.Yellow);
             }
-            else if (secuencia==5)
+            else if (secuencia == 5)
             {
                 cambiarColorSemaforo(this.btnVerde2, this.btnAmarillo2, this.btnRojo2, Color.Red);
                 cambiarColorSemaforo(this.btnVerde3, this.btnAmarillo3, this.btnRojo3, Color.Yellow);
@@ -159,74 +242,44 @@ namespace simulación
             {
                 cambiarColorSemaforo(this.btnVerde4, this.btnAmarillo4, this.btnRojo4, Color.Red);
                 cambiarColorSemaforo(this.txtVerde1, this.txtAmarillo1, this.txtRojo1, Color.Yellow);
-            }else if (secuencia == 13)
+            }
+            else if (secuencia == 13)
             {
                 cambiarColorSemaforo(this.txtVerde1, this.txtAmarillo1, this.txtRojo1, Color.Green);
                 secuencia = 0;
             }
         }
 
-       
 
-        private void cambiarColorSemaforo(TextBox txtVerde, TextBox txtAmarillo,TextBox txtRojo, Color color)
+
+        private void cambiarHora()
         {
-            if (color == Color.Red)
-            {
-                txtVerde.BackColor = Color.Black;
-                txtAmarillo.BackColor = Color.Black;
-                txtRojo.BackColor = Color.Red;
-            } else if (color == Color.Yellow)
-            {
-                txtVerde.BackColor = Color.Black;
-                txtAmarillo.BackColor = Color.Yellow;
-                txtRojo.BackColor = Color.Black;
-            }
-            else if (color == Color.Green)
-            {
-                txtVerde.BackColor = Color.Green;
-                txtAmarillo.BackColor = Color.Black;
-                txtRojo.BackColor = Color.Black;
-            }
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-
-        }
-
-        private void setTiempoInicial()
-        {
-           hora = 6; 
-           minuto = 0;
-           segundo = 0;
-           meridiano = "AM";
-           TiempoGeneral.Interval = 1000;
-        }
-
-        private void timer1_Tick_1(object sender, EventArgs e)
-        {
-            //tiempoGeneral
-            label1.Text = ((3*tiempoSemaforo.Interval) / 1000).ToString();
-            //label2.Text = DateTime.Now.ToLongTimeString();
             segundo++;
             if (segundo == 60)
             {
-                segundo = 0;minuto++;
+                segundo = 0; 
+                minuto++;
             }
             if (minuto == 60)
             {
-                minuto = 0;hora++;
+                minuto = 0; 
+                hora++;
             }
-
-            label2.Text = hora + ":" + minuto + ":" + segundo+" "+meridiano;
         }
+
         private void empezar()
         {
-            TiempoGeneral.Enabled = true;
+            timerAutosMover.Enabled = true;
             tiempoSemaforo.Enabled = true;
+            tiempoGeneral.Enabled = true;
         }
 
+        private void pausar()
+        {
+            timerAutosMover.Enabled = false;
+            tiempoSemaforo.Enabled = false;
+            tiempoGeneral.Enabled = false;
+        }
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -236,40 +289,19 @@ namespace simulación
 
         private void btnDisminuir_Click(object sender, EventArgs e){disminuir(this.tiempoSemaforo);}
 
-        private void pictureBox3_Click(object sender, EventArgs e)
+        private void btnPausa_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
+            pausar();
         }
 
         private void startBtn_MouseUp(object sender, MouseEventArgs e){ empezar(); }
 
-        private void textBox12_TextChanged(object sender, EventArgs e)
-        {
+        
 
-        }
+        
 
-        private void btnAcelerar_MouseUp(object sender, MouseEventArgs e){ disminuir(this.TiempoGeneral); }
+        private void btnAcelerar_MouseUp(object sender, MouseEventArgs e){ disminuir(this.tiempoGeneral); }
 
-        private void btnAlentizar_MouseUp(object sender, MouseEventArgs e){ aumentar(this.TiempoGeneral); }
+        private void btnAlentizar_MouseUp(object sender, MouseEventArgs e){ aumentar(this.tiempoGeneral); }
     }
 }
