@@ -34,17 +34,17 @@
             this.txtRojo1 = new System.Windows.Forms.TextBox();
             this.txtAmarillo1 = new System.Windows.Forms.TextBox();
             this.txtVerde1 = new System.Windows.Forms.TextBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.TiempoGeneral = new System.Windows.Forms.Timer(this.components);
+            this.TimerAutos = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDisminuir = new System.Windows.Forms.Button();
+            this.btnAumentar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnAumentar = new System.Windows.Forms.Button();
-            this.btnDisminuir = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnAmarillo4 = new System.Windows.Forms.TextBox();
@@ -61,6 +61,9 @@
             this.btnRojo2 = new System.Windows.Forms.TextBox();
             this.btnVerde2 = new System.Windows.Forms.TextBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
+            this.btnAcelerar = new System.Windows.Forms.Button();
+            this.btnAlentizar = new System.Windows.Forms.Button();
+            this.startBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -112,15 +115,15 @@
             this.txtVerde1.Size = new System.Drawing.Size(20, 19);
             this.txtVerde1.TabIndex = 3;
             // 
-            // timer1
+            // TiempoGeneral
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
+            this.TiempoGeneral.Enabled = true;
+            this.TiempoGeneral.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(140, 45);
+            this.label2.Location = new System.Drawing.Point(140, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 4;
@@ -128,22 +131,45 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.startBtn);
+            this.panel1.Controls.Add(this.btnAlentizar);
+            this.panel1.Controls.Add(this.btnAcelerar);
             this.panel1.Controls.Add(this.btnDisminuir);
             this.panel1.Controls.Add(this.btnAumentar);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(601, 29);
+            this.panel1.Location = new System.Drawing.Point(601, -3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(220, 140);
+            this.panel1.Size = new System.Drawing.Size(220, 163);
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // btnDisminuir
+            // 
+            this.btnDisminuir.Location = new System.Drawing.Point(122, 45);
+            this.btnDisminuir.Name = "btnDisminuir";
+            this.btnDisminuir.Size = new System.Drawing.Size(75, 23);
+            this.btnDisminuir.TabIndex = 8;
+            this.btnDisminuir.Text = "Disminuir Tiempo";
+            this.btnDisminuir.UseVisualStyleBackColor = true;
+            this.btnDisminuir.Click += new System.EventHandler(this.btnDisminuir_Click);
+            // 
+            // btnAumentar
+            // 
+            this.btnAumentar.Location = new System.Drawing.Point(20, 45);
+            this.btnAumentar.Name = "btnAumentar";
+            this.btnAumentar.Size = new System.Drawing.Size(75, 23);
+            this.btnAumentar.TabIndex = 7;
+            this.btnAumentar.Text = "Aumentar Tiempo";
+            this.btnAumentar.UseVisualStyleBackColor = true;
+            this.btnAumentar.Click += new System.EventHandler(this.btnAumentar_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(101, 45);
+            this.label4.Location = new System.Drawing.Point(65, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(30, 13);
             this.label4.TabIndex = 6;
@@ -159,26 +185,6 @@
             this.label3.Text = "Tiempo del semaforo(seg)";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // btnAumentar
-            // 
-            this.btnAumentar.Location = new System.Drawing.Point(22, 108);
-            this.btnAumentar.Name = "btnAumentar";
-            this.btnAumentar.Size = new System.Drawing.Size(75, 23);
-            this.btnAumentar.TabIndex = 7;
-            this.btnAumentar.Text = "Aumentar Tiempo";
-            this.btnAumentar.UseVisualStyleBackColor = true;
-            this.btnAumentar.Click += new System.EventHandler(this.btnAumentar_Click);
-            // 
-            // btnDisminuir
-            // 
-            this.btnDisminuir.Location = new System.Drawing.Point(125, 108);
-            this.btnDisminuir.Name = "btnDisminuir";
-            this.btnDisminuir.Size = new System.Drawing.Size(75, 23);
-            this.btnDisminuir.TabIndex = 8;
-            this.btnDisminuir.Text = "Disminuir Tiempo";
-            this.btnDisminuir.UseVisualStyleBackColor = true;
-            this.btnDisminuir.Click += new System.EventHandler(this.btnDisminuir_Click);
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.txtAmarillo1);
@@ -191,15 +197,6 @@
             this.panel2.TabIndex = 6;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Gray;
-            this.label5.Location = new System.Drawing.Point(310, 29);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 13);
-            this.label5.TabIndex = 7;
-            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(0, 4);
@@ -209,11 +206,20 @@
             this.textBox1.TabIndex = 8;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Gray;
+            this.label5.Location = new System.Drawing.Point(310, 29);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 13);
+            this.label5.TabIndex = 7;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::simulación.Properties.Resources.dibujosim2;
             this.pictureBox1.InitialImage = global::simulación.Properties.Resources.mapa3;
-            this.pictureBox1.Location = new System.Drawing.Point(-1, -3);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 23);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(822, 461);
             this.pictureBox1.TabIndex = 8;
@@ -359,11 +365,41 @@
             this.textBox13.Size = new System.Drawing.Size(24, 70);
             this.textBox13.TabIndex = 8;
             // 
+            // btnAcelerar
+            // 
+            this.btnAcelerar.Location = new System.Drawing.Point(20, 105);
+            this.btnAcelerar.Name = "btnAcelerar";
+            this.btnAcelerar.Size = new System.Drawing.Size(75, 23);
+            this.btnAcelerar.TabIndex = 9;
+            this.btnAcelerar.Text = "Acelerar";
+            this.btnAcelerar.UseVisualStyleBackColor = true;
+            this.btnAcelerar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnAcelerar_MouseUp);
+            // 
+            // btnAlentizar
+            // 
+            this.btnAlentizar.Location = new System.Drawing.Point(122, 107);
+            this.btnAlentizar.Name = "btnAlentizar";
+            this.btnAlentizar.Size = new System.Drawing.Size(75, 23);
+            this.btnAlentizar.TabIndex = 10;
+            this.btnAlentizar.Text = "Alentizar";
+            this.btnAlentizar.UseVisualStyleBackColor = true;
+            this.btnAlentizar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnAlentizar_MouseUp);
+            // 
+            // startBtn
+            // 
+            this.startBtn.Location = new System.Drawing.Point(68, 136);
+            this.startBtn.Name = "startBtn";
+            this.startBtn.Size = new System.Drawing.Size(75, 23);
+            this.startBtn.TabIndex = 11;
+            this.startBtn.Text = "Empezar";
+            this.startBtn.UseVisualStyleBackColor = true;
+            this.startBtn.MouseUp += new System.Windows.Forms.MouseEventHandler(this.startBtn_MouseUp);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(833, 470);
+            this.ClientSize = new System.Drawing.Size(859, 496);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -397,8 +433,8 @@
         private System.Windows.Forms.TextBox txtRojo1;
         private System.Windows.Forms.TextBox txtAmarillo1;
         private System.Windows.Forms.TextBox txtVerde1;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Timer TiempoGeneral;
+        private System.Windows.Forms.Timer TimerAutos;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
@@ -424,6 +460,9 @@
         private System.Windows.Forms.TextBox btnRojo2;
         private System.Windows.Forms.TextBox btnVerde2;
         private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.Button btnAcelerar;
+        private System.Windows.Forms.Button btnAlentizar;
+        private System.Windows.Forms.Button startBtn;
     }
 }
 

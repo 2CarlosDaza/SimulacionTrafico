@@ -89,5 +89,14 @@
   <ItemGroup>
     <None Include="imagenes\dibujosim2.PNG" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="imagenes\NewFolder1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entity\Entity.csproj">
+      <Project>{2a72651f-fb24-4d1a-9a20-87c26d3209f2}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

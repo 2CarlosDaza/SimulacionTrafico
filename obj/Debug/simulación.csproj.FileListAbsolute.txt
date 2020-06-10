@@ -7,3 +7,6 @@ C:\Users\Carlos Daza\source\repos\simulación\obj\Debug\simulación.Properties.R
 C:\Users\Carlos Daza\source\repos\simulación\obj\Debug\simulación.csproj.GenerateResource.cache
 C:\Users\Carlos Daza\source\repos\simulación\obj\Debug\simulación.exe
 C:\Users\Carlos Daza\source\repos\simulación\obj\Debug\simulación.pdb
+C:\Users\Carlos Daza\source\repos\simulación\bin\Debug\Entity.dll
+C:\Users\Carlos Daza\source\repos\simulación\bin\Debug\Entity.pdb
+C:\Users\Carlos Daza\source\repos\simulación\obj\Debug\simulación.csproj.CopyComplete
