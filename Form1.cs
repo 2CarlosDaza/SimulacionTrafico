@@ -18,7 +18,7 @@ namespace simulación
         string meridiano;//AM o PM
          
         readonly Random random = new Random();
-        coordenadasPlano coordenadasPlano;
+        //coordenadasPlano coordenadasPlano;
         VehiculoRepository vehiculoRepository;
         
         public Form1()
@@ -32,7 +32,7 @@ namespace simulación
             label1.Text = (tiempoSemaforo.Interval / 1000).ToString();
             vehiculoRepository = new VehiculoRepository();
      
-            setCoordenadas();
+            //setCoordenadas();
             reiniciar();
             
           //  crearAuto(this,70,250);
@@ -45,6 +45,7 @@ namespace simulación
             estadoInicialSemaforos();
             setTiempoInicial();
         }
+        /*
         private void setCoordenadas()
         {
             coordenadasPlano = new coordenadasPlano();
@@ -57,7 +58,7 @@ namespace simulación
             coordenadasPlano.coordenadaX[3] =12;//lado arriba
             coordenadasPlano.coordenadaY[3]=23;
         }
-
+        */
         private void setTiempoInicial()
         {
             hora = 6;
@@ -121,46 +122,11 @@ namespace simulación
         private void crearAuto(Form formi,int x,int y)
         {
             vehiculoRepository.crearAuto(formi);
-            /*
-            String ruta;
-            ruta = @"C:\Users\Carlos Daza\source\repos\simulación\imagenes\coche42.png";
-            PictureBox pictureBox = new PictureBox();
-            pictureBox.Location = new Point(x, y);
-            pictureBox.Image = Image.FromFile(ruta);
-            pictureBox.BackColor = Color.Transparent;
-            pictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBox.Visible=true;
-            pictureBox.Tag = "carrito" + ListaCarros.Count();
-            ListaCarros.Add(pictureBox);
-            pictureBox.BringToFront();
-            formi.Controls.Add(pictureBox);
-            */
+            
         }
         private void moverAutos()
         {
             vehiculoRepository.moverAutos(this);
-            //ListaCarros[i].Location = new Point(ListaCarros[i].Location.X, ListaCarros[i].Location.Y + velocidad);
-            /* if (avanzar)
-             {
-                 ListaCarros[i].Location = new Point(ListaCarros[i].Location.X - velocidad, ListaCarros[i].Location.Y);
-                 if (ListaCarros[i].Location.X < -70)
-                 {
-                     this.Controls.Remove(ListaCarros[i]);
-                     ListaCarros.Remove(ListaCarros[i]);
-                 }
-             }
-             */
-            /*
-            for (int i = 0; i < ListaCarros.Count; i++)
-            {
-                if (ListaCarros[i].Location.X <= 600)
-                {
-                    ListaCarros[i].Location = new Point(ListaCarros[i].Location.X + 1, ListaCarros[i].Location.Y);
-                }
-                
-                ListaCarros[i].BringToFront();
-            }
-            */
         }
 
 
@@ -309,14 +275,6 @@ namespace simulación
         private void destruirCarros()
         {
             vehiculoRepository.destruirVehiculos(this);
-            /*
-            foreach (PictureBox e in ListaCarros)
-            {
-                this.Controls.Remove(e);
-                e.Dispose();
-            }
-            ListaCarros = new List<PictureBox>();
-            */
         }
 
         private void btnAcelerar_MouseUp(object sender, MouseEventArgs e){ disminuir(this.tiempoGeneral); }

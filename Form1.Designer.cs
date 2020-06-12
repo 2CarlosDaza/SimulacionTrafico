@@ -415,7 +415,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::simulación.Properties.Resources.coche33;
-            this.pictureBox1.Location = new System.Drawing.Point(178, 222);
+            this.pictureBox1.Location = new System.Drawing.Point(149, 327);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(82, 36);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -426,7 +426,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::simulación.Properties.Resources.coche43;
-            this.pictureBox2.Location = new System.Drawing.Point(58, 222);
+            this.pictureBox2.Location = new System.Drawing.Point(58, 340);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(71, 36);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
