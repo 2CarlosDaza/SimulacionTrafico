@@ -18,6 +18,10 @@ namespace simulación
         string meridiano;//AM o PM
          
         readonly Random random = new Random();
+        private Semaforo semaforo1;
+        private Semaforo semaforo2;
+        private Semaforo semaforo3;
+        private Semaforo semaforo4;
         //coordenadasPlano coordenadasPlano;
         VehiculoRepository vehiculoRepository;
         
@@ -33,6 +37,7 @@ namespace simulación
             vehiculoRepository = new VehiculoRepository();
      
             //setCoordenadas();
+            
             reiniciar();
             
           //  crearAuto(this,70,250);
@@ -43,7 +48,15 @@ namespace simulación
         {
             destruirCarros();
             estadoInicialSemaforos();
+            crearSemaforos();
             setTiempoInicial();
+        }
+        public void crearSemaforos()
+        {
+            semaforo1= new Semaforo(txtVerde1,txtAmarillo1,txtRojo1);
+            semaforo2 = new Semaforo(txtVerde2, txtAmarillo2, txtRojo2);
+            semaforo3 = new Semaforo(txtVerde3, txtAmarillo3, txtRojo3);
+            semaforo4 = new Semaforo(txtVerde4, txtAmarillo4, txtRojo4);
         }
         /*
         private void setCoordenadas()
@@ -131,25 +144,9 @@ namespace simulación
 
 
        
-        private void cambiarColorSemaforo(TextBox txtVerde, TextBox txtAmarillo,TextBox txtRojo, Color color)
+        private void cambiarColorSemaforo( int colorSemaforo,Semaforo semaforo)
         {
-            if (color == Color.Red)
-            {
-                txtVerde.BackColor = Color.Black;
-                txtAmarillo.BackColor = Color.Black;
-                txtRojo.BackColor = Color.Red;
-            } else if (color == Color.Yellow)
-            {
-                txtVerde.BackColor = Color.Black;
-                txtAmarillo.BackColor = Color.Yellow;
-                txtRojo.BackColor = Color.Black;
-            }
-            else if (color == Color.Green)
-            {
-                txtVerde.BackColor = Color.Green;
-                txtAmarillo.BackColor = Color.Black;
-                txtRojo.BackColor = Color.Black;
-            }
+            semaforo.cambiarColorSemaforo(colorSemaforo);
         }
 
         
@@ -174,55 +171,55 @@ namespace simulación
             secuencia++;
             if (secuencia == 1)
             {
-                cambiarColorSemaforo(this.txtVerde1, this.txtAmarillo1, this.txtRojo1, Color.Yellow);
+                cambiarColorSemaforo( Semaforo.AMARILLO, semaforo1);
             }
             else if (secuencia == 2)
             {
-                cambiarColorSemaforo(this.txtVerde1, this.txtAmarillo1, this.txtRojo1, Color.Red);
-                cambiarColorSemaforo(this.txtVerde2, this.txtAmarillo2, this.txtRojo2, Color.Yellow);
+                cambiarColorSemaforo(Semaforo.ROJO, semaforo1);
+                cambiarColorSemaforo(Semaforo.AMARILLO, semaforo2);
             }
             else if (secuencia == 3)//semaforo2
             {
-                cambiarColorSemaforo(this.txtVerde2, this.txtAmarillo2, this.txtRojo2, Color.Green);
+                cambiarColorSemaforo(Semaforo.VERDE, semaforo2);
             }
             else if (secuencia == 4)
             {
-                cambiarColorSemaforo(this.txtVerde2, this.txtAmarillo2, this.txtRojo2, Color.Yellow);
+                cambiarColorSemaforo(Semaforo.AMARILLO, semaforo2);
             }
             else if (secuencia == 5)
             {
-                cambiarColorSemaforo(this.txtVerde2, this.txtAmarillo2, this.txtRojo2, Color.Red);
-                cambiarColorSemaforo(this.txtVerde3, this.txtAmarillo3, this.txtRojo3, Color.Yellow);
+                cambiarColorSemaforo(Semaforo.ROJO, semaforo2);
+                cambiarColorSemaforo(Semaforo.AMARILLO, semaforo3);
             }
             else if (secuencia == 6)//semaforo3
             {
-                cambiarColorSemaforo(this.txtVerde3, this.txtAmarillo3, this.txtRojo3, Color.Green);
+                cambiarColorSemaforo(Semaforo.VERDE, semaforo3);
             }
             else if (secuencia == 7)
             {
-                cambiarColorSemaforo(this.txtVerde3, this.txtAmarillo3, this.txtRojo3, Color.Yellow);
+                cambiarColorSemaforo(Semaforo.AMARILLO, semaforo3);
             }
             else if (secuencia == 8)
             {
-                cambiarColorSemaforo(this.txtVerde3, this.txtAmarillo3, this.txtRojo3, Color.Red);
-                cambiarColorSemaforo(this.txtVerde4, this.txtAmarillo4, this.txtRojo4, Color.Yellow);
+                cambiarColorSemaforo(Semaforo.ROJO, semaforo3);
+                cambiarColorSemaforo(Semaforo.AMARILLO, semaforo4);
             }
             else if (secuencia == 9)//semaforo4
             {
-                cambiarColorSemaforo(this.txtVerde4, this.txtAmarillo4, this.txtRojo4, Color.Green);
+                cambiarColorSemaforo(Semaforo.VERDE, semaforo4);
             }
             else if (secuencia == 10)
             {
-                cambiarColorSemaforo(this.txtVerde4, this.txtAmarillo4, this.txtRojo4, Color.Yellow);
+                cambiarColorSemaforo(Semaforo.AMARILLO, semaforo4);
             }
             else if (secuencia == 12)
             {
-                cambiarColorSemaforo(this.txtVerde4, this.txtAmarillo4, this.txtRojo4, Color.Red);
-                cambiarColorSemaforo(this.txtVerde1, this.txtAmarillo1, this.txtRojo1, Color.Yellow);
+                cambiarColorSemaforo(Semaforo.ROJO, semaforo4);
+                cambiarColorSemaforo(Semaforo.AMARILLO, semaforo1);
             }
             else if (secuencia == 13)
             {
-                cambiarColorSemaforo(this.txtVerde1, this.txtAmarillo1, this.txtRojo1, Color.Green);
+                cambiarColorSemaforo(Semaforo.VERDE, semaforo1);
                 secuencia = 0;
             }
         }
