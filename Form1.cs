@@ -24,7 +24,7 @@ namespace simulación
         private Semaforo semaforo4;
         //coordenadasPlano coordenadasPlano;
         VehiculoRepository vehiculoRepository;
-        
+        SemaforoRepository semaforoRepository;
         public Form1()
         {
             InitializeComponent();
@@ -53,10 +53,17 @@ namespace simulación
         }
         public void crearSemaforos()
         {
-            semaforo1= new Semaforo(txtVerde1,txtAmarillo1,txtRojo1);
+            semaforoRepository = new SemaforoRepository();
+            semaforoRepository.crearSemaforo(txtVerde1, txtAmarillo1, txtRojo1);
+            semaforoRepository.crearSemaforo(txtVerde2, txtAmarillo2, txtRojo2);
+            semaforoRepository.crearSemaforo(txtVerde3, txtAmarillo3, txtRojo3);
+            semaforoRepository.crearSemaforo(txtVerde4, txtAmarillo4, txtRojo4);
+            /*
+            semaforo1 = new Semaforo(txtVerde1,txtAmarillo1,txtRojo1);
             semaforo2 = new Semaforo(txtVerde2, txtAmarillo2, txtRojo2);
             semaforo3 = new Semaforo(txtVerde3, txtAmarillo3, txtRojo3);
             semaforo4 = new Semaforo(txtVerde4, txtAmarillo4, txtRojo4);
+            */
         }
         /*
         private void setCoordenadas()
@@ -144,9 +151,10 @@ namespace simulación
 
 
        
-        private void cambiarColorSemaforo( int colorSemaforo,Semaforo semaforo)
+        private void cambiarColorSemaforo( int colorSemaforo,int semaforoNum)
         {
-            semaforo.cambiarColorSemaforo(colorSemaforo);
+
+            semaforoRepository.cambiarColorSemaforo(colorSemaforo,semaforoNum);
         }
 
         
@@ -171,55 +179,55 @@ namespace simulación
             secuencia++;
             if (secuencia == 1)
             {
-                cambiarColorSemaforo( Semaforo.AMARILLO, semaforo1);
+                cambiarColorSemaforo( Semaforo.AMARILLO, 1);
             }
             else if (secuencia == 2)
             {
-                cambiarColorSemaforo(Semaforo.ROJO, semaforo1);
-                cambiarColorSemaforo(Semaforo.AMARILLO, semaforo2);
+                cambiarColorSemaforo(Semaforo.ROJO, 1);
+                cambiarColorSemaforo(Semaforo.AMARILLO,2);
             }
             else if (secuencia == 3)//semaforo2
             {
-                cambiarColorSemaforo(Semaforo.VERDE, semaforo2);
+                cambiarColorSemaforo(Semaforo.VERDE, 2);
             }
             else if (secuencia == 4)
             {
-                cambiarColorSemaforo(Semaforo.AMARILLO, semaforo2);
+                cambiarColorSemaforo(Semaforo.AMARILLO, 2);
             }
             else if (secuencia == 5)
             {
-                cambiarColorSemaforo(Semaforo.ROJO, semaforo2);
-                cambiarColorSemaforo(Semaforo.AMARILLO, semaforo3);
+                cambiarColorSemaforo(Semaforo.ROJO, 2);
+                cambiarColorSemaforo(Semaforo.AMARILLO, 3);
             }
             else if (secuencia == 6)//semaforo3
             {
-                cambiarColorSemaforo(Semaforo.VERDE, semaforo3);
+                cambiarColorSemaforo(Semaforo.VERDE, 3);
             }
             else if (secuencia == 7)
             {
-                cambiarColorSemaforo(Semaforo.AMARILLO, semaforo3);
+                cambiarColorSemaforo(Semaforo.AMARILLO, 3);
             }
             else if (secuencia == 8)
             {
-                cambiarColorSemaforo(Semaforo.ROJO, semaforo3);
-                cambiarColorSemaforo(Semaforo.AMARILLO, semaforo4);
+                cambiarColorSemaforo(Semaforo.ROJO, 3);
+                cambiarColorSemaforo(Semaforo.AMARILLO, 4);
             }
             else if (secuencia == 9)//semaforo4
             {
-                cambiarColorSemaforo(Semaforo.VERDE, semaforo4);
+                cambiarColorSemaforo(Semaforo.VERDE, 4);
             }
             else if (secuencia == 10)
             {
-                cambiarColorSemaforo(Semaforo.AMARILLO, semaforo4);
+                cambiarColorSemaforo(Semaforo.AMARILLO, 4);
             }
             else if (secuencia == 12)
             {
-                cambiarColorSemaforo(Semaforo.ROJO, semaforo4);
-                cambiarColorSemaforo(Semaforo.AMARILLO, semaforo1);
+                cambiarColorSemaforo(Semaforo.ROJO, 4);
+                cambiarColorSemaforo(Semaforo.AMARILLO, 1);
             }
             else if (secuencia == 13)
             {
-                cambiarColorSemaforo(Semaforo.VERDE, semaforo1);
+                cambiarColorSemaforo(Semaforo.VERDE, 1);
                 secuencia = 0;
             }
         }
