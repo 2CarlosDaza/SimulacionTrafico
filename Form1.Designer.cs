@@ -38,6 +38,8 @@
             this.timerAutosMover = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnReiniciar = new System.Windows.Forms.Button();
+            this.btnPausa = new System.Windows.Forms.Button();
             this.startBtn = new System.Windows.Forms.Button();
             this.btnAlentizar = new System.Windows.Forms.Button();
             this.btnAcelerar = new System.Windows.Forms.Button();
@@ -49,28 +51,31 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnAmarillo4 = new System.Windows.Forms.TextBox();
-            this.btnRojo4 = new System.Windows.Forms.TextBox();
-            this.btnVerde4 = new System.Windows.Forms.TextBox();
+            this.txtAmarillo4 = new System.Windows.Forms.TextBox();
+            this.txtRojo4 = new System.Windows.Forms.TextBox();
+            this.txtVerde4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnAmarillo3 = new System.Windows.Forms.TextBox();
-            this.btnRojo3 = new System.Windows.Forms.TextBox();
-            this.btnVerde3 = new System.Windows.Forms.TextBox();
+            this.txtAmarillo3 = new System.Windows.Forms.TextBox();
+            this.txtRojo3 = new System.Windows.Forms.TextBox();
+            this.txtVerde3 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.btnAmarillo2 = new System.Windows.Forms.TextBox();
-            this.btnRojo2 = new System.Windows.Forms.TextBox();
-            this.btnVerde2 = new System.Windows.Forms.TextBox();
+            this.txtAmarillo2 = new System.Windows.Forms.TextBox();
+            this.txtRojo2 = new System.Windows.Forms.TextBox();
+            this.txtVerde2 = new System.Windows.Forms.TextBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
-            this.fondo = new System.Windows.Forms.PictureBox();
-            this.btnPausa = new System.Windows.Forms.Button();
             this.timerAutosSpawn = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.fondo = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fondo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,7 +101,6 @@
             this.txtRojo1.Name = "txtRojo1";
             this.txtRojo1.Size = new System.Drawing.Size(21, 21);
             this.txtRojo1.TabIndex = 1;
-            this.txtRojo1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // txtAmarillo1
             // 
@@ -136,6 +140,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnReiniciar);
             this.panel1.Controls.Add(this.btnPausa);
             this.panel1.Controls.Add(this.startBtn);
             this.panel1.Controls.Add(this.btnAlentizar);
@@ -146,10 +151,30 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(601, -3);
+            this.panel1.Location = new System.Drawing.Point(843, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(220, 163);
+            this.panel1.Size = new System.Drawing.Size(224, 304);
             this.panel1.TabIndex = 5;
+            // 
+            // btnReiniciar
+            // 
+            this.btnReiniciar.Location = new System.Drawing.Point(81, 198);
+            this.btnReiniciar.Name = "btnReiniciar";
+            this.btnReiniciar.Size = new System.Drawing.Size(75, 23);
+            this.btnReiniciar.TabIndex = 13;
+            this.btnReiniciar.Text = "Reiniciar";
+            this.btnReiniciar.UseVisualStyleBackColor = true;
+            this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
+            // 
+            // btnPausa
+            // 
+            this.btnPausa.Location = new System.Drawing.Point(122, 137);
+            this.btnPausa.Name = "btnPausa";
+            this.btnPausa.Size = new System.Drawing.Size(75, 23);
+            this.btnPausa.TabIndex = 12;
+            this.btnPausa.Text = "Pausar";
+            this.btnPausa.UseVisualStyleBackColor = true;
+            this.btnPausa.Click += new System.EventHandler(this.btnPausa_Click);
             // 
             // startBtn
             // 
@@ -250,41 +275,41 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.btnAmarillo4);
-            this.panel3.Controls.Add(this.btnRojo4);
-            this.panel3.Controls.Add(this.btnVerde4);
+            this.panel3.Controls.Add(this.txtAmarillo4);
+            this.panel3.Controls.Add(this.txtRojo4);
+            this.panel3.Controls.Add(this.txtVerde4);
             this.panel3.Controls.Add(this.textBox5);
             this.panel3.Location = new System.Drawing.Point(475, 263);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(54, 100);
             this.panel3.TabIndex = 9;
             // 
-            // btnAmarillo4
+            // txtAmarillo4
             // 
-            this.btnAmarillo4.BackColor = System.Drawing.Color.Black;
-            this.btnAmarillo4.Location = new System.Drawing.Point(0, 26);
-            this.btnAmarillo4.Multiline = true;
-            this.btnAmarillo4.Name = "btnAmarillo4";
-            this.btnAmarillo4.Size = new System.Drawing.Size(20, 20);
-            this.btnAmarillo4.TabIndex = 2;
+            this.txtAmarillo4.BackColor = System.Drawing.Color.Black;
+            this.txtAmarillo4.Location = new System.Drawing.Point(0, 26);
+            this.txtAmarillo4.Multiline = true;
+            this.txtAmarillo4.Name = "txtAmarillo4";
+            this.txtAmarillo4.Size = new System.Drawing.Size(20, 20);
+            this.txtAmarillo4.TabIndex = 2;
             // 
-            // btnRojo4
+            // txtRojo4
             // 
-            this.btnRojo4.BackColor = System.Drawing.Color.Black;
-            this.btnRojo4.Location = new System.Drawing.Point(-1, 52);
-            this.btnRojo4.Multiline = true;
-            this.btnRojo4.Name = "btnRojo4";
-            this.btnRojo4.Size = new System.Drawing.Size(21, 21);
-            this.btnRojo4.TabIndex = 1;
+            this.txtRojo4.BackColor = System.Drawing.Color.Black;
+            this.txtRojo4.Location = new System.Drawing.Point(-1, 52);
+            this.txtRojo4.Multiline = true;
+            this.txtRojo4.Name = "txtRojo4";
+            this.txtRojo4.Size = new System.Drawing.Size(21, 21);
+            this.txtRojo4.TabIndex = 1;
             // 
-            // btnVerde4
+            // txtVerde4
             // 
-            this.btnVerde4.BackColor = System.Drawing.Color.Green;
-            this.btnVerde4.Location = new System.Drawing.Point(0, 3);
-            this.btnVerde4.Multiline = true;
-            this.btnVerde4.Name = "btnVerde4";
-            this.btnVerde4.Size = new System.Drawing.Size(20, 19);
-            this.btnVerde4.TabIndex = 3;
+            this.txtVerde4.BackColor = System.Drawing.Color.Green;
+            this.txtVerde4.Location = new System.Drawing.Point(0, 3);
+            this.txtVerde4.Multiline = true;
+            this.txtVerde4.Name = "txtVerde4";
+            this.txtVerde4.Size = new System.Drawing.Size(20, 19);
+            this.txtVerde4.TabIndex = 3;
             // 
             // textBox5
             // 
@@ -296,41 +321,41 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.btnAmarillo3);
-            this.panel4.Controls.Add(this.btnRojo3);
-            this.panel4.Controls.Add(this.btnVerde3);
+            this.panel4.Controls.Add(this.txtAmarillo3);
+            this.panel4.Controls.Add(this.txtRojo3);
+            this.panel4.Controls.Add(this.txtVerde3);
             this.panel4.Controls.Add(this.textBox9);
             this.panel4.Location = new System.Drawing.Point(474, 84);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(25, 76);
             this.panel4.TabIndex = 9;
             // 
-            // btnAmarillo3
+            // txtAmarillo3
             // 
-            this.btnAmarillo3.BackColor = System.Drawing.Color.Black;
-            this.btnAmarillo3.Location = new System.Drawing.Point(0, 26);
-            this.btnAmarillo3.Multiline = true;
-            this.btnAmarillo3.Name = "btnAmarillo3";
-            this.btnAmarillo3.Size = new System.Drawing.Size(20, 20);
-            this.btnAmarillo3.TabIndex = 2;
+            this.txtAmarillo3.BackColor = System.Drawing.Color.Black;
+            this.txtAmarillo3.Location = new System.Drawing.Point(0, 26);
+            this.txtAmarillo3.Multiline = true;
+            this.txtAmarillo3.Name = "txtAmarillo3";
+            this.txtAmarillo3.Size = new System.Drawing.Size(20, 20);
+            this.txtAmarillo3.TabIndex = 2;
             // 
-            // btnRojo3
+            // txtRojo3
             // 
-            this.btnRojo3.BackColor = System.Drawing.Color.Black;
-            this.btnRojo3.Location = new System.Drawing.Point(-1, 52);
-            this.btnRojo3.Multiline = true;
-            this.btnRojo3.Name = "btnRojo3";
-            this.btnRojo3.Size = new System.Drawing.Size(21, 21);
-            this.btnRojo3.TabIndex = 1;
+            this.txtRojo3.BackColor = System.Drawing.Color.Black;
+            this.txtRojo3.Location = new System.Drawing.Point(-1, 52);
+            this.txtRojo3.Multiline = true;
+            this.txtRojo3.Name = "txtRojo3";
+            this.txtRojo3.Size = new System.Drawing.Size(21, 21);
+            this.txtRojo3.TabIndex = 1;
             // 
-            // btnVerde3
+            // txtVerde3
             // 
-            this.btnVerde3.BackColor = System.Drawing.Color.Green;
-            this.btnVerde3.Location = new System.Drawing.Point(0, 3);
-            this.btnVerde3.Multiline = true;
-            this.btnVerde3.Name = "btnVerde3";
-            this.btnVerde3.Size = new System.Drawing.Size(20, 19);
-            this.btnVerde3.TabIndex = 3;
+            this.txtVerde3.BackColor = System.Drawing.Color.Green;
+            this.txtVerde3.Location = new System.Drawing.Point(0, 3);
+            this.txtVerde3.Multiline = true;
+            this.txtVerde3.Name = "txtVerde3";
+            this.txtVerde3.Size = new System.Drawing.Size(20, 19);
+            this.txtVerde3.TabIndex = 3;
             // 
             // textBox9
             // 
@@ -342,41 +367,41 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.btnAmarillo2);
-            this.panel5.Controls.Add(this.btnRojo2);
-            this.panel5.Controls.Add(this.btnVerde2);
+            this.panel5.Controls.Add(this.txtAmarillo2);
+            this.panel5.Controls.Add(this.txtRojo2);
+            this.panel5.Controls.Add(this.txtVerde2);
             this.panel5.Controls.Add(this.textBox13);
             this.panel5.Location = new System.Drawing.Point(335, 104);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(43, 76);
             this.panel5.TabIndex = 10;
             // 
-            // btnAmarillo2
+            // txtAmarillo2
             // 
-            this.btnAmarillo2.BackColor = System.Drawing.Color.Black;
-            this.btnAmarillo2.Location = new System.Drawing.Point(0, 26);
-            this.btnAmarillo2.Multiline = true;
-            this.btnAmarillo2.Name = "btnAmarillo2";
-            this.btnAmarillo2.Size = new System.Drawing.Size(20, 20);
-            this.btnAmarillo2.TabIndex = 2;
+            this.txtAmarillo2.BackColor = System.Drawing.Color.Black;
+            this.txtAmarillo2.Location = new System.Drawing.Point(0, 26);
+            this.txtAmarillo2.Multiline = true;
+            this.txtAmarillo2.Name = "txtAmarillo2";
+            this.txtAmarillo2.Size = new System.Drawing.Size(20, 20);
+            this.txtAmarillo2.TabIndex = 2;
             // 
-            // btnRojo2
+            // txtRojo2
             // 
-            this.btnRojo2.BackColor = System.Drawing.Color.Black;
-            this.btnRojo2.Location = new System.Drawing.Point(-1, 52);
-            this.btnRojo2.Multiline = true;
-            this.btnRojo2.Name = "btnRojo2";
-            this.btnRojo2.Size = new System.Drawing.Size(21, 21);
-            this.btnRojo2.TabIndex = 1;
+            this.txtRojo2.BackColor = System.Drawing.Color.Black;
+            this.txtRojo2.Location = new System.Drawing.Point(-1, 52);
+            this.txtRojo2.Multiline = true;
+            this.txtRojo2.Name = "txtRojo2";
+            this.txtRojo2.Size = new System.Drawing.Size(21, 21);
+            this.txtRojo2.TabIndex = 1;
             // 
-            // btnVerde2
+            // txtVerde2
             // 
-            this.btnVerde2.BackColor = System.Drawing.Color.Green;
-            this.btnVerde2.Location = new System.Drawing.Point(0, 3);
-            this.btnVerde2.Multiline = true;
-            this.btnVerde2.Name = "btnVerde2";
-            this.btnVerde2.Size = new System.Drawing.Size(20, 19);
-            this.btnVerde2.TabIndex = 3;
+            this.txtVerde2.BackColor = System.Drawing.Color.Green;
+            this.txtVerde2.Location = new System.Drawing.Point(0, 3);
+            this.txtVerde2.Multiline = true;
+            this.txtVerde2.Name = "txtVerde2";
+            this.txtVerde2.Size = new System.Drawing.Size(20, 19);
+            this.txtVerde2.TabIndex = 3;
             // 
             // textBox13
             // 
@@ -385,6 +410,28 @@
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(21, 73);
             this.textBox13.TabIndex = 8;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::simulación.Properties.Resources.coche33;
+            this.pictureBox1.Location = new System.Drawing.Point(178, 222);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(82, 36);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = global::simulación.Properties.Resources.coche43;
+            this.pictureBox2.Location = new System.Drawing.Point(58, 222);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(71, 36);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 12;
+            this.pictureBox2.TabStop = false;
             // 
             // fondo
             // 
@@ -396,21 +443,13 @@
             this.fondo.TabIndex = 8;
             this.fondo.TabStop = false;
             // 
-            // btnPausa
-            // 
-            this.btnPausa.Location = new System.Drawing.Point(122, 137);
-            this.btnPausa.Name = "btnPausa";
-            this.btnPausa.Size = new System.Drawing.Size(75, 23);
-            this.btnPausa.TabIndex = 12;
-            this.btnPausa.Text = "Pausar";
-            this.btnPausa.UseVisualStyleBackColor = true;
-            this.btnPausa.Click += new System.EventHandler(this.btnPausa_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(859, 496);
+            this.ClientSize = new System.Drawing.Size(1116, 496);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -431,6 +470,8 @@
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fondo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -457,25 +498,28 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox fondo;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox btnAmarillo4;
-        private System.Windows.Forms.TextBox btnRojo4;
-        private System.Windows.Forms.TextBox btnVerde4;
+        private System.Windows.Forms.TextBox txtAmarillo4;
+        private System.Windows.Forms.TextBox txtRojo4;
+        private System.Windows.Forms.TextBox txtVerde4;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox btnAmarillo3;
-        private System.Windows.Forms.TextBox btnRojo3;
-        private System.Windows.Forms.TextBox btnVerde3;
+        private System.Windows.Forms.TextBox txtAmarillo3;
+        private System.Windows.Forms.TextBox txtRojo3;
+        private System.Windows.Forms.TextBox txtVerde3;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox btnAmarillo2;
-        private System.Windows.Forms.TextBox btnRojo2;
-        private System.Windows.Forms.TextBox btnVerde2;
+        private System.Windows.Forms.TextBox txtAmarillo2;
+        private System.Windows.Forms.TextBox txtRojo2;
+        private System.Windows.Forms.TextBox txtVerde2;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.Button btnAcelerar;
         private System.Windows.Forms.Button btnAlentizar;
         private System.Windows.Forms.Button startBtn;
         private System.Windows.Forms.Button btnPausa;
         private System.Windows.Forms.Timer timerAutosSpawn;
+        private System.Windows.Forms.Button btnReiniciar;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

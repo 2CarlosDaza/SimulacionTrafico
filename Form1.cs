@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Entity.Vehiculo;
 
 namespace simulación
 {
@@ -15,7 +16,7 @@ namespace simulación
     {
         int secuencia, hora, minuto, segundo;
         string meridiano;//AM o PM
-         List<PictureBox> ListaCarros = new List<PictureBox>();
+         
         readonly Random random = new Random();
         coordenadasPlano coordenadasPlano;
         VehiculoRepository vehiculoRepository;
@@ -30,10 +31,19 @@ namespace simulación
 
             label1.Text = (tiempoSemaforo.Interval / 1000).ToString();
             vehiculoRepository = new VehiculoRepository();
+     
+            setCoordenadas();
+            reiniciar();
+            
+          //  crearAuto(this,70,250);
+        }
+        
+
+        private void reiniciar()
+        {
+            destruirCarros();
             estadoInicialSemaforos();
             setTiempoInicial();
-            setCoordenadas();
-          //  crearAuto(this,70,250);
         }
         private void setCoordenadas()
         {
@@ -63,15 +73,15 @@ namespace simulación
             txtVerde1.BackColor = Color.Green;
             txtAmarillo1.BackColor = Color.Black;
             txtRojo1.BackColor = Color.Black;
-            btnVerde2.BackColor = Color.Black;
-            btnAmarillo2.BackColor = Color.Black;
-            btnRojo2.BackColor = Color.Red; ;
-            btnVerde3.BackColor = Color.Black;
-            btnAmarillo3.BackColor = Color.Black;
-            btnRojo3.BackColor = Color.Red; ;
-            btnVerde4.BackColor = Color.Black;
-            btnAmarillo4.BackColor = Color.Black;
-            btnRojo4.BackColor = Color.Red; ;
+            txtVerde2.BackColor = Color.Black;
+            txtAmarillo2.BackColor = Color.Black;
+            txtRojo2.BackColor = Color.Red; ;
+            txtVerde3.BackColor = Color.Black;
+            txtAmarillo3.BackColor = Color.Black;
+            txtRojo3.BackColor = Color.Red; ;
+            txtVerde4.BackColor = Color.Black;
+            txtAmarillo4.BackColor = Color.Black;
+            txtRojo4.BackColor = Color.Red; ;
             txtVerde1.BringToFront();
             txtAmarillo1.BringToFront();
             txtRojo1.BringToFront();
@@ -110,6 +120,8 @@ namespace simulación
 
         private void crearAuto(Form formi,int x,int y)
         {
+            vehiculoRepository.crearAuto(formi);
+            /*
             String ruta;
             ruta = @"C:\Users\Carlos Daza\source\repos\simulación\imagenes\coche42.png";
             PictureBox pictureBox = new PictureBox();
@@ -122,10 +134,11 @@ namespace simulación
             ListaCarros.Add(pictureBox);
             pictureBox.BringToFront();
             formi.Controls.Add(pictureBox);
-            
+            */
         }
-        private void moverAuto()
+        private void moverAutos()
         {
+            vehiculoRepository.moverAutos(this);
             //ListaCarros[i].Location = new Point(ListaCarros[i].Location.X, ListaCarros[i].Location.Y + velocidad);
             /* if (avanzar)
              {
@@ -137,6 +150,7 @@ namespace simulación
                  }
              }
              */
+            /*
             for (int i = 0; i < ListaCarros.Count; i++)
             {
                 if (ListaCarros[i].Location.X <= 600)
@@ -146,6 +160,7 @@ namespace simulación
                 
                 ListaCarros[i].BringToFront();
             }
+            */
         }
 
 
@@ -171,14 +186,10 @@ namespace simulación
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-
-        }
+        
         private void TimerAutos_Tick(object sender, EventArgs e)
         {
-            moverAuto();
+            moverAutos();
         }
 
         private void timer1_Tick_1(object sender, EventArgs e)
@@ -202,45 +213,45 @@ namespace simulación
             else if (secuencia == 2)
             {
                 cambiarColorSemaforo(this.txtVerde1, this.txtAmarillo1, this.txtRojo1, Color.Red);
-                cambiarColorSemaforo(this.btnVerde2, this.btnAmarillo2, this.btnRojo2, Color.Yellow);
+                cambiarColorSemaforo(this.txtVerde2, this.txtAmarillo2, this.txtRojo2, Color.Yellow);
             }
             else if (secuencia == 3)//semaforo2
             {
-                cambiarColorSemaforo(this.btnVerde2, this.btnAmarillo2, this.btnRojo2, Color.Green);
+                cambiarColorSemaforo(this.txtVerde2, this.txtAmarillo2, this.txtRojo2, Color.Green);
             }
             else if (secuencia == 4)
             {
-                cambiarColorSemaforo(this.btnVerde2, this.btnAmarillo2, this.btnRojo2, Color.Yellow);
+                cambiarColorSemaforo(this.txtVerde2, this.txtAmarillo2, this.txtRojo2, Color.Yellow);
             }
             else if (secuencia == 5)
             {
-                cambiarColorSemaforo(this.btnVerde2, this.btnAmarillo2, this.btnRojo2, Color.Red);
-                cambiarColorSemaforo(this.btnVerde3, this.btnAmarillo3, this.btnRojo3, Color.Yellow);
+                cambiarColorSemaforo(this.txtVerde2, this.txtAmarillo2, this.txtRojo2, Color.Red);
+                cambiarColorSemaforo(this.txtVerde3, this.txtAmarillo3, this.txtRojo3, Color.Yellow);
             }
             else if (secuencia == 6)//semaforo3
             {
-                cambiarColorSemaforo(this.btnVerde3, this.btnAmarillo3, this.btnRojo3, Color.Green);
+                cambiarColorSemaforo(this.txtVerde3, this.txtAmarillo3, this.txtRojo3, Color.Green);
             }
             else if (secuencia == 7)
             {
-                cambiarColorSemaforo(this.btnVerde3, this.btnAmarillo3, this.btnRojo3, Color.Yellow);
+                cambiarColorSemaforo(this.txtVerde3, this.txtAmarillo3, this.txtRojo3, Color.Yellow);
             }
             else if (secuencia == 8)
             {
-                cambiarColorSemaforo(this.btnVerde3, this.btnAmarillo3, this.btnRojo3, Color.Red);
-                cambiarColorSemaforo(this.btnVerde4, this.btnAmarillo4, this.btnRojo4, Color.Yellow);
+                cambiarColorSemaforo(this.txtVerde3, this.txtAmarillo3, this.txtRojo3, Color.Red);
+                cambiarColorSemaforo(this.txtVerde4, this.txtAmarillo4, this.txtRojo4, Color.Yellow);
             }
             else if (secuencia == 9)//semaforo4
             {
-                cambiarColorSemaforo(this.btnVerde4, this.btnAmarillo4, this.btnRojo4, Color.Green);
+                cambiarColorSemaforo(this.txtVerde4, this.txtAmarillo4, this.txtRojo4, Color.Green);
             }
             else if (secuencia == 10)
             {
-                cambiarColorSemaforo(this.btnVerde4, this.btnAmarillo4, this.btnRojo4, Color.Yellow);
+                cambiarColorSemaforo(this.txtVerde4, this.txtAmarillo4, this.txtRojo4, Color.Yellow);
             }
             else if (secuencia == 12)
             {
-                cambiarColorSemaforo(this.btnVerde4, this.btnAmarillo4, this.btnRojo4, Color.Red);
+                cambiarColorSemaforo(this.txtVerde4, this.txtAmarillo4, this.txtRojo4, Color.Red);
                 cambiarColorSemaforo(this.txtVerde1, this.txtAmarillo1, this.txtRojo1, Color.Yellow);
             }
             else if (secuencia == 13)
@@ -289,16 +300,24 @@ namespace simulación
 
         private void btnDisminuir_Click(object sender, EventArgs e){disminuir(this.tiempoSemaforo);}
 
-        private void btnPausa_Click(object sender, EventArgs e)
-        {
-            pausar();
-        }
+        private void btnPausa_Click(object sender, EventArgs e){pausar();}
 
         private void startBtn_MouseUp(object sender, MouseEventArgs e){ empezar(); }
 
-        
+        private void btnReiniciar_Click(object sender, EventArgs e){destruirCarros();}
 
-        
+        private void destruirCarros()
+        {
+            vehiculoRepository.destruirVehiculos(this);
+            /*
+            foreach (PictureBox e in ListaCarros)
+            {
+                this.Controls.Remove(e);
+                e.Dispose();
+            }
+            ListaCarros = new List<PictureBox>();
+            */
+        }
 
         private void btnAcelerar_MouseUp(object sender, MouseEventArgs e){ disminuir(this.tiempoGeneral); }
 

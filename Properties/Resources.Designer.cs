@@ -63,9 +63,39 @@ namespace simulación.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap coche33 {
+            get {
+                object obj = ResourceManager.GetObject("coche33", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap coche42 {
             get {
                 object obj = ResourceManager.GetObject("coche42", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap coche43 {
+            get {
+                object obj = ResourceManager.GetObject("coche43", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap coche44 {
+            get {
+                object obj = ResourceManager.GetObject("coche44", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
