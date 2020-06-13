@@ -1,0 +1,12 @@
+C:\Users\Carlos Daza\source\repos\simulación\bin\Debug\simulación.exe.config
+C:\Users\Carlos Daza\source\repos\simulación\bin\Debug\simulación.exe
+C:\Users\Carlos Daza\source\repos\simulación\bin\Debug\simulación.pdb
+C:\Users\Carlos Daza\source\repos\simulación\bin\Debug\Entity.dll
+C:\Users\Carlos Daza\source\repos\simulación\bin\Debug\Entity.pdb
+C:\Users\Carlos Daza\source\repos\simulación\obj\Debug\simulacion.csprojAssemblyReference.cache
+C:\Users\Carlos Daza\source\repos\simulación\obj\Debug\simulación.Form1.resources
+C:\Users\Carlos Daza\source\repos\simulación\obj\Debug\simulación.Properties.Resources.resources
+C:\Users\Carlos Daza\source\repos\simulación\obj\Debug\simulacion.csproj.GenerateResource.cache
+C:\Users\Carlos Daza\source\repos\simulación\obj\Debug\simulacion.csproj.CopyComplete
+C:\Users\Carlos Daza\source\repos\simulación\obj\Debug\simulación.exe
+C:\Users\Carlos Daza\source\repos\simulación\obj\Debug\simulación.pdb
